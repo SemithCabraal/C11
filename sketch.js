@@ -1,0 +1,28 @@
+
+var trex ,trex_running;
+function preload(){
+  trex_running=loadAnimation("trex1.png","trex3.png","trex4.png")
+
+}
+
+function setup(){
+  createCanvas(600,200)
+  
+  //create a trex sprite
+ trex= createSprite(50,170,10,40)
+ trex.addAnimation("running",trex_running)
+ trex.scale=0.5
+ ground= createSprite(170,170,400,10)
+
+}
+
+function draw(){
+  background("white")
+  
+  if(keyDown("space")){
+    trex.velocityY=-10
+  }
+trex.velocityY+=0.8
+  trex.collide(ground)
+drawSprites()
+}
